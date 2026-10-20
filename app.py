@@ -257,6 +257,72 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
+
+if page == "Dashboard":
+    st.markdown("""
+    <div class="hero">
+        <h1>Welcome to pHoreBrain Studio 🧠</h1>
+        <p>Your medical admission question bank and study resource workspace.</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.write("")
+    st.subheader("Your Workspace")
+
+    total_questions = len(st.session_state.questions)
+
+    c1, c2, c3 = st.columns(3)
+
+    with c1:
+        st.metric("Total Questions", total_questions)
+
+    with c2:
+        st.metric("Subjects Available", 6)
+
+    with c3:
+        st.metric("Export Formats", 3)
+
+    st.write("")
+    st.subheader("Quick Actions")
+    st.caption("Choose what you want to do next.")
+
+    a1, a2, a3 = st.columns(3)
+
+    with a1:
+        st.markdown("### ✍️ Create MCQs")
+        st.write("Write questions, add four options, and set the correct answer.")
+        if st.button("Open Question Editor", use_container_width=True):
+            st.session_state.workspace_page = "Question Editor"
+            st.rerun()
+
+    with a2:
+        st.markdown("### 📄 Export Resources")
+        st.write("Prepare editable Word documents and PowerPoint slides.")
+        if st.button("Open Export Center", use_container_width=True):
+            st.session_state.workspace_page = "Export Center"
+            st.rerun()
+
+    with a3:
+        st.markdown("### 📚 About Studio")
+        st.write("Explore the current MVP features and planned improvements.")
+        if st.button("About pHoreBrain", use_container_width=True):
+            st.session_state.workspace_page = "About MVP"
+            st.rerun()
+
+    st.write("")
+    st.subheader("Question Bank Overview")
+
+    if total_questions == 0:
+        st.info("Your question bank is empty. Start by creating MCQs or loading sample questions.")
+        if st.button("Start Creating Questions", type="primary"):
+            st.session_state.workspace_page = "Question Editor"
+            st.rerun()
+    else:
+        st.success(f"You currently have {total_questions} question(s) in your active session.")
+        st.caption("Remember: questions are currently stored in the active session, not a permanent database.")
+
+elif page == "Question Editor":
+
 if page == "Question Editor":
     st.subheader("1. Set up your resource")
     c1, c2, c3 = st.columns(3)
