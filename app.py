@@ -322,16 +322,14 @@ if page == "Dashboard":
         st.caption("Remember: questions are currently stored in the active session, not a permanent database.")
 
 elif page == "Question Editor":
-
-if page == "Question Editor":
     st.subheader("1. Set up your resource")
     c1, c2, c3 = st.columns(3)
     with c1:
         title = st.text_input("Resource title", "Biology & Physics Practice Set", key="resource_title")
     with c2:
-        subject = st.selectbox("Subject", ["Biology", "Chemistry", "Physics", "English", "General Knowledge", "Mixed"])
+        subject = st.selectbox("Subject", ["Biology", "Chemistry", "Physics", "English", "General Knowledge", "Others"])
     with c3:
-        chapter = st.text_input("Chapter / topic", "Cell Biology / Mechanics")
+        chapter = st.text_input("Chapter / topic", "Cell & It's Struchture / Cell Division")
 
     st.subheader("2. Add a multiple-choice question")
     with st.form("question_form", clear_on_submit=True):
