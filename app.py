@@ -15,17 +15,89 @@ st.set_page_config(page_title="pHoreBrain Studio", page_icon="🧠", layout="wid
 GREEN = "#B5F36A"
 DARK = "#102B24"
 
-st.markdown(f"""
+
+st.markdown("""
 <style>
-.stApp {{ background: #F5F7F5; }}
-[data-testid="stSidebar"] {{ background: {DARK}; }}
-[data-testid="stSidebar"] * {{ color: white !important; }}
-.hero {{ background: {DARK}; color: white; padding: 1.5rem; border-radius: 16px; }}
-.hero h1 {{ color: white; margin: 0; }}
-.hero p {{ color: #D2E1D9; margin-bottom: 0; }}
-div.stButton > button {{ border-radius: 10px; }}
+/* Main app */
+.stApp {
+    background-color: #101714;
+    color: #F2F7F4;
+}
+
+/* Main page text */
+.stApp h1, .stApp h2, .stApp h3,
+.stApp p, .stApp li, .stApp label,
+.stApp [data-testid="stMarkdownContainer"] {
+    color: #F2F7F4;
+}
+
+/* Sidebar */
+[data-testid="stSidebar"] {
+    background-color: #102B24;
+}
+[data-testid="stSidebar"] * {
+    color: #F2F7F4 !important;
+}
+
+/* Input fields and text areas */
+.stApp input,
+.stApp textarea {
+    background-color: #1B2721 !important;
+    color: #FFFFFF !important;
+    -webkit-text-fill-color: #FFFFFF !important;
+    caret-color: #FFFFFF;
+}
+.stApp input::placeholder,
+.stApp textarea::placeholder {
+    color: #C0CEC6 !important;
+    -webkit-text-fill-color: #C0CEC6 !important;
+    opacity: 1;
+}
+
+/* Dropdowns */
+.stApp [data-baseweb="select"] > div {
+    background-color: #1B2721;
+    color: #FFFFFF;
+}
+.stApp [data-baseweb="select"] * {
+    color: #FFFFFF;
+}
+
+/* Hero banner */
+.hero {
+    background-color: #102B24;
+    color: #FFFFFF;
+    padding: 1.5rem;
+    border-radius: 16px;
+}
+.hero h1 {
+    color: #FFFFFF !important;
+    margin: 0;
+}
+.hero p {
+    color: #D2E1D9 !important;
+    margin-bottom: 0;
+}
+
+/* Buttons */
+div.stButton > button,
+div.stDownloadButton > button,
+.stFormSubmitButton > button {
+    border-radius: 10px;
+}
+
+/* Expanders */
+.stApp [data-testid="stExpander"] {
+    background-color: #1B2721;
+}
+
+/* Improve contrast for secondary text */
+.stApp [data-testid="stCaptionContainer"] {
+    color: #D2E1D9;
+}
 </style>
 """, unsafe_allow_html=True)
+
 
 if "questions" not in st.session_state:
     st.session_state.questions = []
