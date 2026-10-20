@@ -242,7 +242,11 @@ def build_pptx(title, subject, chapter, questions, include_answers):
 with st.sidebar:
     st.markdown("## 🧠 pHoreBrain Studio")
     st.caption("Question Bank & Document Builder")
-    page = st.radio("Workspace", ["Question Editor", "Export Center", "About MVP"])
+    page = st.radio(
+    "Workspace",
+    ["Dashboard", "Question Editor", "Export Center", "About MVP"],
+    key="workspace_page"
+)
     st.markdown("---")
     st.caption("MVP 0.1 • Local-first prototype")
 
