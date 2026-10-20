@@ -49,7 +49,7 @@ st.markdown("""
 }
 .stApp input::placeholder,
 .stApp textarea::placeholder {
-    color: #C0CEC6 !important;
+    color: #FFFFFF !important;
     -webkit-text-fill-color: #C0CEC6 !important;
     opacity: 1;
 }
