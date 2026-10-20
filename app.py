@@ -16,6 +16,7 @@ GREEN = "#B5F36A"
 DARK = "#102B24"
 
 
+
 st.markdown("""
 <style>
 /* Main app */
@@ -49,7 +50,7 @@ st.markdown("""
 }
 .stApp input::placeholder,
 .stApp textarea::placeholder {
-    color: #FFFFFF !important;
+    color: #C0CEC6 !important;
     -webkit-text-fill-color: #C0CEC6 !important;
     opacity: 1;
 }
@@ -97,7 +98,6 @@ div.stDownloadButton > button,
 }
 </style>
 """, unsafe_allow_html=True)
-
 
 if "questions" not in st.session_state:
     st.session_state.questions = []
